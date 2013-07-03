@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="edu.conncoll.banner.admissions.application.Decision" table="CC_WRKCRD_DECISION_VW">
+	
+		<id name="id" column="sarappd_apdc_code">
+            <generator class="assigned"/>
+        </id>
+        
+        <property name="applId" column="appl_id"/>
+        
+        <property name="description" column="stvapdc_desc"/>
+        <property name="sequence" column="sarappd_seq_no"/>
+        <property name="date" column="sarappd_apdc_date"/>
+        <property name="rater" column="sarappd_user" />
+        <property name="makesApplicationInactive" column="stvapdc_appl_inact"/>
+        <property name="isLatest" column="latest"/>
+        
+	</class>
+</hibernate-mapping>

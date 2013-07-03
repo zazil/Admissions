@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="edu.conncoll.banner.admissions.application.Relation" table="CC_WRKCRD_FAMILY_VW">
+	
+		<id name="id" column="id">
+            <generator class="assigned"/>
+        </id>
+        
+        <property name="applId" column="appl_id" update="false" />
+        <property name="type" column="type" update="false"/>
+        
+        <property name="school" column="school"/>
+        <property name="grade" column="grade_level"/>
+        <property name="degree" column="degree"/>
+        <property name="toDate" column="to_date"/>
+        <property name="occupation" column="occupation"/>
+        <property name="birth" column="birth_country" />
+        
+        <many-to-one name="createdBy" class="edu.conncoll.banner.User" column="created_by" update="false" />
+        <property name="createdOn" column="created_date" update="false" />
+        <many-to-one name="updatedBy" class="edu.conncoll.banner.User" column="update_by" insert="false" />
+        <property name="updatedOn" column="update_date" insert="false" />
+        
+        <sql-insert>insert into wrkcrd.cc_wrkcrd_relation (appl_id, type, school, grade_level, degree, to_date, occupation, birth_country, created_by, created_date, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)</sql-insert>
+		<sql-update>update wrkcrd.cc_wrkcrd_relation set school = ?, grade_level = ?, degree = ?, to_date = ?, occupation = ?, birth_country = ?, update_by = ?, update_date = ? where id = ?</sql-update>
+		<sql-delete>delete from wrkcrd.cc_wrkcrd_relation where id = ?</sql-delete>
+	</class>
+</hibernate-mapping>

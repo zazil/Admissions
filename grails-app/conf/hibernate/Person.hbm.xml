@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="edu.conncoll.banner.Person" table="CC_WRKCRD_PERSON_VW" abstract="true"
+						dynamic-insert="false" dynamic-update="false" mutable="false">
+
+		<id name="pidm" column="spriden_pidm" type="long"><generator class="assigned" /></id>
+
+		<property name="bannerId" column="spriden_id" />
+		<property name="thirdPartyId" column="gobtpac_external_user" />
+		
+		<property name="prefix" column="spbpers_name_prefix" />
+		<property name="firstName" column="spriden_first_name" />
+		<property name="middleInitial" column="spriden_mi" />
+		<property name="lastName" column="spriden_last_name" />
+		<property name="suffix" column="spbpers_name_suffix" />
+		
+		<property name="preferredName" column="vw_pref_first_name" />
+		<property name="email" column="goremal_email_address" />
+
+		<joined-subclass name="edu.conncoll.banner.User" table="CC_WRKCRD_BAN_USER_VW"
+							dynamic-insert="false" dynamic-update="false">
+			<key column="pidm" />
+			
+			<property name="username" column="username" />
+			<property name="password" column="password" />
+			<property name="enabled" column="enabled" />
+			<property name="accountExpired" column="account_expired" />
+			<property name="accountLocked" column="account_locked" />
+			<property name="passwordExpired" column="password_expired" />
+		
+			<set name="authorities" table="CC_WRKCRD_BAN_USER_ROLE_VW" mutable="false" inverse="true">
+				<key column="user_id" not-null="true" />
+				<many-to-many column="role_id"  class="edu.conncoll.banner.Role" outer-join="false" />
+			</set>
+		</joined-subclass>
+		
+		<joined-subclass name="edu.conncoll.banner.admissions.Applicant" table="CC_WRKCRD_APPLICANT_VW" 
+						dynamic-insert="false" dynamic-update="false">
+
+			<key column="spriden_pidm" />
+
+			<property name="gender" column="spbpers_sex" />
+			<property name="citizenshipCode" column="spbpers_citz_code" />
+
+			<set name="addresses" table="CC_WRKCRD_APPL_ADDR_VW">
+				<key column="spraddr_pidm" />
+				<one-to-many class="edu.conncoll.banner.Address" />
+			</set>
+			
+			<set name="telephones" table="CC_WRKCRD_APPL_TELE_VW">
+				<key column="pidm" />
+				<one-to-many class="edu.conncoll.banner.Telephone" />
+			</set>
+			
+			<set name="legacies" table="CC_WRKCRD_APPL_LGCY_VW">
+				<key column="saradap_pidm" />
+				<one-to-many class="edu.conncoll.banner.admissions.applicant.Legacy" />
+			</set>
+			
+			<set name="interviews" table="CC_WRKCRD_APPL_INTV_VW">
+				<key column="sorappt_pidm" />
+				<one-to-many class="edu.conncoll.banner.admissions.applicant.Interview" />
+			</set>
+			
+			<set name="contacts" table="CC_WRKCRD_APPL_CONT_VW">
+				<key column="sorcont_pidm" />
+				<one-to-many class="edu.conncoll.banner.admissions.applicant.Contact" />
+			</set>
+			
+		</joined-subclass>
+	</class>
+
+</hibernate-mapping>

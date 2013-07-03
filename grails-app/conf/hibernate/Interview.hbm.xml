@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="edu.conncoll.banner.admissions.applicant.Interview" table="CC_WRKCRD_INTERVIEW_VW" 
+		   		dynamic-insert="false" dynamic-update="false" mutable="false">
+	
+		<composite-id>
+			<key-property name="pidm" column="sorappt_pidm" />
+			<key-property name="type" column="sorappt_ctyp_code" />
+			<key-property name="date" column="sorappt_contact_date" />
+		</composite-id>
+		
+        <property name="typeDescription" column="stvctyp_desc" insert="false" update="false" />
+        <property name="time" column="sorappt_contact_from_time" insert="false" />
+        <property name="result" column="sorappt_rslt_code" />
+        <property name="resultDescription" column="stvrslt_desc" insert="false" update="false" />
+        <property name="recruiter" column="sorappt_recr_code" />
+        <property name="recruiterName" column="stvrecr_desc" insert="false" update="false" />
+        
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- 
+	TODO: Change the view that feeds this to pull the roles from BanSecr 
+	
+	The property name must be called 'authority' though due to the 
+	Spring Security plugin	
+-->
+
+<hibernate-mapping>
+
+	<class name="edu.conncoll.banner.Role" table="CC_WRKCRD_BAN_ROLE_VW" 
+								dynamic-insert="false" dynamic-update="false">
+
+		<id name="id" column="id" type="long"><generator class="assigned" /></id>
+
+		<property name="authority" column="authority" />
+		
+	</class>
+
+</hibernate-mapping>

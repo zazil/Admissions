@@ -1,0 +1,5 @@
+CREATE OR REPLACE FORCE VIEW "WRKCRD"."CC_WRKCRD_INT_RECR_VW" ("STVRECR_CODE", "STVRECR_DESC")
+AS
+  SELECT stvrecr_code, stvrecr_desc FROM saturn.stvrecr;
+  
+/

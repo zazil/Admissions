@@ -1,0 +1,439 @@
+html, body { 
+	body-top:		0;
+	
+	font-family:	Arial, Verdana, sans-serif;
+	font-size:		10pt;
+}
+
+h1, h2, h3, h4, h5{
+	margin-bottom: 	10px;
+	
+	color:			#002F5F;
+}
+
+#coreContainer, #header {
+	width: 			900px;
+}
+
+#header {
+	background-image: 	url('../images/com-header-bg.png');
+	background-repeat: 	repeat-x;
+	height: 		116px;
+}
+
+#connCollLogo{
+	position:		relative;
+	float:			left;
+	
+	margin:			20px 0 5px 2px;
+}
+
+#pageHdr {
+	font-weight:	bold;	
+}
+#pageHdr .hdrLeft {
+	position:		relative;
+	float:			left;
+}
+#pageHdr .hdrRight {
+	position:		relative;
+	float:			right;
+}
+
+#mainMsg, #modalMessage {
+	width:			90%;
+}
+
+.message{
+	position:		relative;
+	clear:			both;
+	float:			left;
+	
+	text-align: 	center; 
+	padding: 		2px 2px 3px 2px;
+	
+	font-size:		9pt;
+	
+	background-color: #EFEFE0;
+	border:			solid #E5E4CC 1pt;
+	
+	margin-bottom:	10px;
+}
+.error{
+	color:			red;
+	margin:			15px 10px 0 10px;
+}
+.green { color: green; }
+.red { color: red; }
+.eightPt{ font-size: 9pt; }
+.navy { color: #002F5F; }
+
+.smallSpinner {
+	position:		relative;
+	float:			right;
+}
+
+.helpText {
+	position:		relative;
+	border: 		5px 0 10px 0;
+}
+
+#applicationSearch table {
+	border:			solid #A6B6C7 1pt;
+}
+
+#searchResults table {
+	border-collapse: collapse;
+	width: 100%;
+}
+#searchResults table tr { border-bottom: solid #9EC3DE 1pt;  }
+#searchResults table tr>td:first-child, #searchResults table tr>th:first-child {
+	padding-left: 1.25em;
+}
+#searchResults table tr>td:last-child, #searchResults table tr>th:last-child {
+	padding-right: 1.25em;
+}
+#searchResults table td, #searchResults table th {
+	line-height: 1.5em;
+	padding: 0.5em 0.6em;
+	text-align: left;
+	vertical-align: top;	
+}
+#searchResults input {
+	float:			left;
+}
+#searchResults table th, #searchResults table th:hover {
+	background-color: #002F5F;
+	color:			#FFFFFF;
+	font-weight:	normal;
+}
+#searchResults table tr:hover {
+	background-color: #E5E4CC;
+}
+
+
+.adminPortlet {
+	font-size:		10pt;
+}
+.adminPortlet .portletTitle {
+	font-size:		12pt;
+	font-weight:	bold;
+	text-decoration: underline;
+	color:			#002F5F;
+	margin-bottom:	10px;
+}
+.adminPortlet label {
+	position:		relative;
+	float:			left;
+	clear:			both;
+	
+	font-weight:	bold;
+}
+.adminPortlet input, .adminPortlet textarea, .adminPortlet a {
+	position:		relative;
+	float:			right;
+	margin-right:	25px;	
+}
+.adminPortlet .submit {
+	clear:			both;
+}
+
+#tabs {
+	height: 		auto;
+}
+
+.noteList, .ratingList, .familyList, .interestList, .yccList {
+	position:		relative;
+	clear:			both;
+	float:			left;
+	
+	width:			98%;
+	padding:		5px 8px 8px 8px;
+}
+
+.dataTable td {
+	padding:		4px 2px 4px 2px;
+	
+	text-size:		10pt;
+}
+
+.editBtn, .deleteBtn {
+	float: 			right;
+}
+
+.helpTable {
+	position: 		relative; 
+	float: 			left;  
+	margin-right: 	25px;
+}
+.helpTable td {
+	border: 		1pt solid #9EC3DE;
+	padding:		5px;
+}
+
+
+.admin th {
+	background-color: #002F5F;
+	color:			white;
+	
+	text-align:		left;
+}
+.admin label {
+	position:		relative;
+	float:			left;
+	clear:			both;
+	
+	font-size:		10pt;
+	
+	color:			#002F5F;
+	
+	margin:			5px 10px 5px 0;
+}
+
+.admin input, .admin textarea {
+	margin-bottom:	10px;
+}
+
+/* ********************************************* */
+
+
+
+
+
+
+
+
+hr { margin-bottom: 5px; }
+.center { text-align: center; margin-bottom: 5px; }
+
+.hidden { display: none; }
+.radio { margin-right: 10px; }
+
+.buttons {
+	-moz-box-shadow:inset 0px 1px 0px 0px #c7c7c7;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #c7c7c7;
+	box-shadow:inset 0px 1px 0px 0px #c7c7c7;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #c8cfdb), color-stop(1, #eeedfa) );
+	background:-moz-linear-gradient( center top, #c8cfdb 5%, #eeedfa 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c8cfdb', endColorstr='#eeedfa');
+	background-color:#c8cfdb;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #cccccc;
+	display:inline-block;
+	color:#303030;
+	font-family:arial;
+	font-size:12px;
+	font-weight:bold;
+	padding:6px 16px;
+	margin: 10px 10px 18px 10px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ffffff;
+}.buttons:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #eeedfa), color-stop(1, #c8cfdb) );
+	background:-moz-linear-gradient( center top, #eeedfa 5%, #c8cfdb 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeedfa', endColorstr='#c8cfdb');
+	background-color:#eeedfa;
+}.buttons:active {
+	position:relative;
+	top:1px;
+}
+a.buttons:link, a.buttons:hover, a.buttons:visited {
+	text-decoration: underline;
+	font-weight: normal;
+	color: #000;
+}
+
+.panes #general, .panes #school, .panes #checklist, .panes #comments, .panes #ratings {
+	height: auto;
+}
+
+#applicants{
+	margin-top:		8px;	
+}
+#applicants li{
+	margin-bottom: 	5px;
+}
+
+#main{
+	position:		relative;
+	float:			left;
+
+	margin: 		10px 6px 15px 6px;
+	padding: 		10px 5px 10px 5px;
+	
+	width:			900px;		
+}
+
+#spinner, #commentSpinner{
+	position:		absolute;
+	top:			300px;
+	left:			400px;
+}
+
+
+
+.panes div { width:	97.5%; }
+
+#applicantWorkCard{ position: relative; width: auto; }
+
+#applicantSummary{ width: 48%; }
+#applicationSummary{ width: 45%; }
+#schoolSummary{ width: 40%; }
+#testSummary{ width: 50%; margin-left: 10px; }
+#schoolCommentSummary{ width: 95%; }
+#commentSummary{ width: 95%; }
+#ratingSummary{ width: 95%; }
+
+#applicantSummary, #applicationSummary, #schoolSummary, #testSummary, #schoolCommentSummary{ 
+	position:		relative;
+	float:			left;
+	
+	padding:		10px 5px 15px 5px; 
+}
+
+#applicantSummary div, #applicationSummary div, #schoolSummary div, testSummary div, #schoolCommentSummary{ clear: both; }
+
+.workflowButtons {
+	position: 		relative;
+	float:			right;	
+}
+
+.ajaxMsg {
+	margin-bottom:	10px;
+}
+.ajaxTdLink {
+	position:		relative;
+	float:			right;
+	
+	margin-left:	15px;
+}
+a.ajaxTdLink, a.ajaxTdLink:hover, a.ajaxTdLink:visited  {
+	text-decoration: underline;
+	font-weight:	normal;
+}
+
+.comment{
+	height:			80px;
+	width:			650px;		
+}
+.commentShort{
+	height:			40px;
+	width:			300px;		
+}
+.commentSizesmall{
+	height:			60px;
+	width:			255px;
+}
+.commentSizelarge{
+	height:			80px;
+	width:			650px;
+}
+
+
+/* 
+ * -----------------------------------------------------------------------------
+ * Data Table definitions 
+ * -----------------------------------------------------------------------------
+ */
+.dataTable {
+	width:				100%;
+	height:				auto;
+	
+	border:				1pt #9EC3DE solid;
+	border-collapse: 	collapse;	
+}
+.dataTable td {
+	border:				1pt #9EC3DE solid;
+}
+.dataTable label { 
+	color:				#002F5F;
+	font-weight:		bold;
+}
+
+.dataTable .separater {
+	background-color:	#9EC3DE;
+	height:				8px;	
+	opacity:			0.4;
+}
+
+.subTable {
+	height:				auto;	
+}
+
+/*
+ *
+ * Inline edits
+ * 
+ */
+.inlineEdit{
+	display:		inline;
+}
+
+/* 
+ * -----------------------------------------------------------------------------
+ * Yes/No confirmation buttons
+ * -----------------------------------------------------------------------------
+ */
+.ui-dialog { 
+	font-size: 			11px; 
+}
+#question {
+	width: 				300px!important;
+	height: 			60px!important;
+	padding: 			10px 0 0 10px;
+}
+#question img {
+	float: 				left;
+}
+#question span {
+	float: 				left;
+	margin: 			20px 0 0 10px;
+}
+
+
+/* 
+ * -----------------------------------------------------------------------------
+ * Custom modal windows 
+ * -----------------------------------------------------------------------------
+ */
+a.modalEdit, a.modalEdit:visited , a.modalEdit:hover { 
+	float:				right;
+	padding-left: 		15px; 
+	text-decoration: 	underline;
+	font-weight: 		normal;	
+}
+#modalMask {
+  	position:			absolute;
+  	z-index:			9000;
+  	background-color:	#000;
+  	display:			none;
+}
+
+#edits .window { 
+	position:			absolute;
+
+  	display:			none;
+  	z-index:			9999;
+  	padding:			20px; 
+}
+
+#edits .modalEdit {
+	
+	width:				auto;
+	height:				auto;
+	
+	background-color: 	#FFF;
+}
+#edits .modalEdit .modalButton { 
+	background-color: 	#9EC3DE; 
+}
+#edits .modalEdit td { 
+	color:				#002F5F;
+	font-weight: 		bold;
+}
+
+/*
+ * Form validation selectors that work in conjunction with JQuery validate
+ */

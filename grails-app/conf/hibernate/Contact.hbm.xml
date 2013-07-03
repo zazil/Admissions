@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="edu.conncoll.banner.admissions.applicant.Contact" table="CC_WRKCRD_CONTACT_VW" 
+		   		dynamic-insert="false" dynamic-update="false" mutable="false">
+	
+		<composite-id>
+			<key-property name="pidm" column="sorcont_pidm" />
+			<key-property name="type" column="sorcont_ctyp_code" />
+			<key-property name="date" column="sorcont_contact_date" />
+		</composite-id>
+		
+        <property name="group" column="vw_type" insert="false" update="false" />
+        <property name="description" column="stvctyp_desc" insert="false" update="false" />
+        
+        <sql-insert>insert into saturn.sorcont (sorcont_pidm, sorcont_ctyp_code, sorcont_contact_date, sorcont_activity_date) values (?, ?, ?, sysdate)</sql-insert>
+        <sql-delete>delete from saturn.sorcont where sorcont_pidm = ? and sorcont_ctyp_code = ? and sorcont_contact_date = ?</sql-delete>
+        
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="edu.conncoll.banner.admissions.application.Note" table="CC_WRKCRD_NOTES_VW">
+
+		<id name="id" column="id"><generator class="assigned" /></id>
+        
+        <property name="applId" column="appl_id" update="false" />
+        <property name="pidm" column="pidm" insert="false" update="false" />
+        
+        <property name="type" column="type" update="false" />
+        <property name="identifier" column="identifier"/>
+        <property name="identifierDescription" column="identifier_desc" insert="false" update="false"/>
+        <property name="content" column="content"/>
+        
+        <property name="createdOn" column="created_date" update="false" />
+        <property name="updatedOn" column="update_date" insert="false" />
+	
+		<many-to-one name="creator" class="edu.conncoll.banner.User" column="created_by" update="false" />
+		<many-to-one name="updater" class="edu.conncoll.banner.User" column="update_by" insert="false" />
+		
+		<sql-insert>insert into wrkcrd.cc_wrkcrd_notes (appl_id, type, identifier, content, created_date, created_by, id) values (?, ?, ?, ?, ?, ?, ?)</sql-insert>
+		<sql-update>update wrkcrd.cc_wrkcrd_notes set identifier = ?, content = ?, update_date = ?, update_by = ? where id = ?</sql-update>
+		<sql-delete>delete from wrkcrd.cc_wrkcrd_notes where id = ?</sql-delete>
+	</class>
+	
+</hibernate-mapping>

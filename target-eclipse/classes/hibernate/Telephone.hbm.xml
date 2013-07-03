@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="edu.conncoll.banner.Telephone" table="CC_WRKCRD_TELEPHONE_VW" 
+		   		dynamic-insert="false" dynamic-update="false" mutable="false">
+		
+		<id name="id" column="telephone_id">
+            <generator class="assigned"/>
+        </id>
+        
+        <property name="type" column="sprtele_tele_code"/>
+        <property name="phone" column="vw_phone"/>
+
+	</class>
+
+</hibernate-mapping>

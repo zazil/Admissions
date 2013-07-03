@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="edu.conncoll.banner.admissions.applicant.Legacy" table="CC_WRKCRD_LEGACY_VW" 
+		   		dynamic-insert="false" dynamic-update="false" mutable="false">
+		
+        <composite-id>
+        	<key-property name="pidm" column="saradap_pidm" />
+			<key-property name="type" column="sorfolk_relt_code" />
+			<key-property name="lastName" column="sorfolk_parent_last" />
+			<key-property name="firstName" column="sorfolk_parent_first" />
+			<key-property name="updatedOn" column="sorfolk_activity_date" />
+		</composite-id>
+        
+        <property name="middleInitial" column="sorfolk_parent_mi" />
+        <property name="nameSuffix" column="sorfolk_parent_name_suffix" />
+        <property name="namePrefix" column="sorfolk_parent_name_prefix" />
+        
+        <property name="alumniClass" column="sorfolk_parent_degree" />
+        <property name="legacyCode" column="spbpers_lgcy_code" />
+        
+        <sql-insert>insert into saturn.sorfolk (sorfolk_pidm, sorfolk_relt_code, sorfolk_parent_last, sorfolk_parent_first, sorfolk_parent_mi, sorfolk_parent_name_prefix, sorfolk_parent_name_suffix, sorfolk_parent_degree, sorfolk_activity_date) values (?, ?, ?, sysdate)</sql-insert>
+        <sql-delete>delete from saturn.sorfolk where sorcont_pidm = ? and sorcont_ctyp_code = ? and sorcont_contact_date = ?</sql-delete>
+    </class>
+    
+</hibernate-mapping>

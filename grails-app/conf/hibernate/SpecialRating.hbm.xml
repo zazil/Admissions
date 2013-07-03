@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="edu.conncoll.banner.admissions.application.SpecialRating" table="CC_WRKCRD_RATING_SPC_VW" mutable="false">
+
+		<id name="id" column="id"><generator class="assigned" /></id>
+        
+        <property name="applId" column="appl_id" update="false" />
+        
+        <property name="description" column="stvratp_desc" />
+        
+        <property name="rating" column="sarrrat_rating"/>
+        	
+	</class>
+	
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="edu.conncoll.banner.admissions.application.ChecklistItem" table="CC_WRKCRD_CHKL_VW" 
+		   		dynamic-insert="false" dynamic-update="false" mutable="false">
+
+		<id name="type" column="sarchkl_admr_code"><generator class="assigned" /></id>
+    
+    	<property name="applId" column="id"/>
+    
+        <property name="description" column="stvadmr_desc"/>
+        <property name="mandatory" column="sarchkl_mandatory_ind"/>
+        <property name="receivedOn" column="sarchkl_receive_date"/>
+        <property name="comment" column="sarchkl_comment"/>
+	</class>
+</hibernate-mapping>

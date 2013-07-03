@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="edu.conncoll.banner.admissions.Application" table="CC_WRKCRD_APPLICATION_VW"
+					dynamic-insert="false" mutable="false">
+
+		<!--<id name="id" column="saradap_pidm" type="long"><generator class="assigned" /></id>
+
+		<property name="applId" column="id" />-->
+		<id name="id" column="id" type="long"><generator class="assigned" /></id>
+		
+		<!-- <property name="pidm" column="saradap_pidm" type="long" /> -->
+		
+		<property name="commonAppId" column="common_app_id" type="string"/>
+		<property name="loadDate" column="saradap_appl_date" />
+		<property name="term" column="saradap_term_code_entry" type="string"/>
+		<property name="type" column="saradap_admt_code" type="string"/>
+		<property name="applNumber" column="saradap_appl_no" />
+		<property name="status" column="stage" type="string"/>
+		<property name="readsCompleted" column="reads_completed" />
+		<property name="citizenship" column="vw_nation" />
+		
+		<property name="apCount" column="ap_count" />
+		<property name="apLimit" column="ap_limit" />
+		<property name="honorsCount" column="honors_count" />
+		<property name="honorsLimit" column="honors_limit" />
+		
+		<property name="artInterest" column="art_interest" />
+		<property name="artFocus" column="art_focus" />
+		<property name="musicFocus" column="music_focus" />
+		
+		<property name="url" column="url" />
+		
+		<property name="birthCountry" column="birth_country" />
+		<property name="otherCountry" column="other_country" />
+		<property name="visaType" column="visa_type" />
+		<property name="alienRegNbr" column="alien_reg_nbr" />
+		<property name="alienRegDate" column="alien_reg_date" />
+		
+		<property name="careerInterest" column="career" type="string"/>
+		<property name="nextReader" column="next_reader" type="string"/>
+		
+		<property name="schoolCeeb" column="sorhsch_sbgi_code" type="string" />
+        <property name="schoolName" column="stvsbgi_desc" type="string"/>
+        <property name="schoolType" column="sorbchr_bchr_code" type="string"/>
+        <property name="schoolTypeDescription" column="stvbchr_desc" />
+        <property name="schoolEps" column="vw_epscode" type="string"/>
+        <property name="graduationDate" column="sorhsch_graduation_date"/>
+        <property name="schoolCity" column="vw_hs_city"/>
+        <property name="schoolState" column="vw_hs_state"/>
+        <property name="schoolNation" column="vw_hs_nation"/>
+        <property name="schoolNationDescription" column="vw_hs_nation_desc"/>
+        <property name="schoolRegion" column="vw_hs_region"/>
+        
+        <property name="whereAttendingReason" column="saradap_wrsn_code"/>
+        <property name="whereAttendingCode" column="saradap_sbgi_code"/>
+        <property name="whereAttendingDescription" column="vw_where_attending"/>
+        
+        <property name="priorCollegeCode" column="sorpcol_sbgi_code"/>
+        <property name="priorCollegeName" column="vw_coll_desc"/>
+        <property name="priorCollegeCity" column="vw_coll_city"/>
+        <property name="priorCollegeState" column="vw_coll_state"/>
+        <property name="priorCollegeNation" column="vw_coll_nation"/>
+        <property name="priorCollegeNationDescription" column="vw_coll_nation_desc"/>
+        
+        <property name="cbo" column="sarrsrc_sbgi_code" />
+        <property name="cboDescription" column="cbo_desc" />
+         
+        <property name="showSATRTests" column="vw_show_satr" type="boolean" />
+        <property name="showSAT2Tests" column="vw_show_sat2" type="boolean" />
+        <property name="showACTTests" column="vw_show_act" type="boolean" />
+        <property name="showNoTests" column="vw_show_none" type="boolean" /> 
+         
+        <property name="bannerClassSize" column="sorhsch_class_size"/>
+        <property name="optionalClassSize" column="class_size" />
+        <property name="trueSize" column="true_size" />
+        
+        <property name="bannerClassRank" column="sorhsch_class_rank" />
+        <property name="optionalClassRank" column="rank" />
+        <property name="rankType" column="rank_type" type="string"/>
+        <property name="weightedRank" column="rank_weighted" type="boolean" />
+        
+        <property name="bannerGpa" column="sorhsch_gpa" type="string"/>
+        <property name="gpaScale" column="gpa_scale" />
+        <property name="highestGpa" column="gpa_highest" />
+        <property name="weightedGpa" column="gpa_weighted" type="boolean" />
+        
+        <property name="classPercentCollegeBound" column="percent_coll_bound" />
+        <property name="bannerPercentile" column="sorhsch_percentile" />
+        
+        <property name="yccCode" column="ycc_code"/>
+        <property name="yccDescription" column="ycc_desc"/>
+        
+        <property name="firstWords" column="first_words"/>
+        
+        <many-to-one name="applicant" class="edu.conncoll.banner.admissions.Applicant" column="saradap_pidm" />
+        
+		<set name="attributes" table="CC_WRKCRD_APPL_ATTRS_VW" inverse="true">
+			<key column="id" />
+			<many-to-many column="stvatts_code"  class="edu.conncoll.banner.admissions.application.Attribute" />
+		</set>
+
+		<set name="tests" table="CC_WRKCRD_APPL_TSTS_VW" order-by="sortest_test_score desc" mutable="false">
+			<key column="appl_id" />
+			<one-to-many class="edu.conncoll.banner.admissions.application.Test" />
+		</set>		
+		
+		<set name="intendedMajors" table="CC_WRKCRD_APPL_MJRS_VW" order-by="sorlfos_priority_no">
+			<!-- <key column="sorlfos_pidm" foreign-key="saradap_pidm" /> -->
+			<key column="appl_id" />
+			<one-to-many class="edu.conncoll.banner.admissions.application.Major" />
+		</set>	
+		
+		<set name="family" table="CC_WRKCRD_APPL_FAM_VW" order-by="type">
+			<key column="appl_id" />
+			<one-to-many class="edu.conncoll.banner.admissions.application.Relation" />
+		</set>
+		
+		<set name="ethnicities" table="CC_WRKCRD_APPL_ETH_VW">
+			<key column="appl_id" />
+			<one-to-many class="edu.conncoll.banner.admissions.application.Ethnicity" />
+		</set>
+		
+		<set name="financialAids" table="CC_WRKCRD_APPL_FA_VW">
+			<key column="appl_id" />
+			<one-to-many class="edu.conncoll.banner.admissions.application.FinancialAid" />
+		</set>
+		
+		<set name="decisions" table="CC_WRKCRD_APPL_DEC_VW" order-by="sarappd_seq_no desc">
+			<key column="appl_id" />
+			<one-to-many class="edu.conncoll.banner.admissions.application.Decision" />
+		</set>
+		
+		<set name="ratings" table="CC_WRKCRD_APPL_RTNGS_VW" order-by="id">
+			<key column="appl_id" />
+			<one-to-many class="edu.conncoll.banner.admissions.application.Rating" />
+		</set>
+		
+		<set name="specialRatings" table="CC_WRKCRD_APPL_SPC_RTNGS_VW">
+			<key column="appl_id" />
+			<one-to-many class="edu.conncoll.banner.admissions.application.SpecialRating" />
+		</set>
+		
+		<set name="notes" table="CC_WRKCRD_APPL_NOTES_VW">
+			<key column="appl_id" />
+			<one-to-many class="edu.conncoll.banner.admissions.application.Note" />
+		</set>
+		
+		<set name="interests" table="CC_WRKCRD_APPL_INTER_VW">
+			<key column="appl_id" />
+			<one-to-many class="edu.conncoll.banner.admissions.application.Interest" />
+		</set>
+		
+		<many-to-one name="recruiter" class="edu.conncoll.banner.Person" column="VW_COUNSELOR" />
+
+		<set name="checklist" table="CC_WRKCRD_APPL_CHKL_VW" order-by="sarchkl_admr_code asc">
+			<key column="id" />
+			<one-to-many class="edu.conncoll.banner.admissions.application.ChecklistItem" />
+		</set>
+		
+		<!-- May be more desirable at some point to just do one sql-update for entire class -->
+		<!-- The thought here w/separate updates is that by not calling .save() we're saving time -->
+		<!-- <sql-query name="Application.updateStatus">update wrkcrd.cc_wrkcrd_appl SET stage = ?, next_reader = ? WHERE id = ?</sql-query> -->
+		
+	</class>
+
+</hibernate-mapping>

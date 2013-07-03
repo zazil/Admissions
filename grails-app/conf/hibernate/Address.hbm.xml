@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="edu.conncoll.banner.Address" table="CC_WRKCRD_ADDRESS_VW" 
+		   		dynamic-insert="false" dynamic-update="false" mutable="false">
+		
+		<id name="id" column="address_id">
+            <generator class="assigned"/>
+        </id>
+        
+        <property name="type" column="spraddr_atyp_code"/>
+        <property name="line1" column="spraddr_street_line1"/>
+        <property name="line2" column="spraddr_street_line2"/>
+        <property name="line3" column="spraddr_street_line3"/>
+        <property name="city" column="spraddr_city"/>
+        <property name="state" column="spraddr_stat_code"/>
+        <property name="zip" column="spraddr_zip"/>
+        <property name="country" column="vw_nation"/>
+
+	</class>
+
+</hibernate-mapping>

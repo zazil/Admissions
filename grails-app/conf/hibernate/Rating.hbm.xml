@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="edu.conncoll.banner.admissions.application.Rating" table="CC_WRKCRD_RATING_VW" mutable="false">
+
+		<id name="id" column="id"><generator class="assigned" /></id>
+        
+        <property name="pidm" column="pidm" insert="false" update="false" />
+        <property name="applId" column="appl_id" update="false" />
+        
+        <property name="ratedOn" column="rated_on" update="false" />
+        
+        <property name="curriculumQualityIndex" column="curric_qual_idx" not-null="false"/>
+        <property name="academicIndex" column="academic"/>
+        <property name="personalIndex" column="personal"/>
+        <property name="testsIndex" column="tests"/>
+        <property name="transcriptIndex" column="high_school"/>
+        
+        <property name="decision" column="decision"/>
+        <property name="summary" column="summary"/>
+	
+		<many-to-one name="rater" class="edu.conncoll.banner.User" column="rater" foreign-key="pidm" update="false"/>
+		
+	</class>
+	
+</hibernate-mapping>

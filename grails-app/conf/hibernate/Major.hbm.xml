@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="edu.conncoll.banner.admissions.application.Major" table="CC_WRKCRD_MAJOR_VW" 
+		   		dynamic-insert="false" dynamic-update="false" mutable="false">
+	
+		<composite-id>
+			<key-property name="applId" column="appl_id" />
+			<key-property name="code" column="sorlfos_majr_code" />
+		</composite-id>
+		
+        <property name="description" column="stvmajr_desc" />
+        <property name="priority" column="sorlfos_priority_no" />
+	
+	</class>
+
+</hibernate-mapping>
